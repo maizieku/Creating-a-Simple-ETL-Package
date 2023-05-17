@@ -1,0 +1,2 @@
+ssis script text 5/17/2023 4:53:17 PMError Message The element cannot be found in a collection. This error happens when you try to retrieve an element from a collection on a container during execution of the package and the element is not there.
+

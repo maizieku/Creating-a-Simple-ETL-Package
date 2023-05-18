@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-QIHCCIO"
   DTS:CreatorName="FAREAST\chiku"
-  DTS:DTSID="{318303F8-6A7E-441C-AAE4-735799C484BC}"
+  DTS:DTSID="{912C66CF-BC99-432F-90AB-D1C99BDF196A}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="1028"
   DTS:ObjectName="demo3"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{5CFE6E8E-C241-4818-96DB-37C14B97A735}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{69F5D2BF-874F-48BA-B3EC-020945897DEC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{288E4556-8E19-49D3-9290-D8E1F1457B5D}"
+      DTS:DTSID="{E39D27F9-AAC1-473D-A301-1E917A41D44F}"
       DTS:ObjectName="Flat File Connection Manager 1">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[User::varFileName]</DTS:PropertyExpression>
@@ -38,7 +38,7 @@
               DTS:DataType="4"
               DTS:TextQualified="True"
               DTS:ObjectName="AverageRate"
-              DTS:DTSID="{B2615DDA-50F1-484E-94FB-E287198749AD}"
+              DTS:DTSID="{834B9ADB-C8BD-41DA-A1C5-ECEA1CE4A8B7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +47,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CurrencyID"
-              DTS:DTSID="{B21E1B52-8D1F-437D-AA6A-682AE646F546}"
+              DTS:DTSID="{B17B2577-509D-445E-891C-9D68CCEEFC6A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CurrencyDate"
-              DTS:DTSID="{48AC1254-2984-4B8F-8BD2-5FCC0F32AF28}"
+              DTS:DTSID="{88BBEF33-299F-48DA-A396-AAD977D8C116}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -64,7 +64,7 @@
               DTS:DataType="4"
               DTS:TextQualified="True"
               DTS:ObjectName="EndOfDayRate"
-              DTS:DTSID="{2CE13CD2-C9C1-451B-A273-23D941B03A7F}"
+              DTS:DTSID="{269552E4-B2F0-47FC-97E0-F7174BC89605}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -73,19 +73,19 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.AdventureWorksDW2012]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{980D3313-017F-4640-9B42-CD85B23FC544}"
+      DTS:DTSID="{0196CEAB-114C-402B-BAC8-072B80D074DF}"
       DTS:ObjectName="localhost.AdventureWorksDW2012">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorksDW2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-demo2-{980D3313-017F-4640-9B42-CD85B23FC544}localhost.AdventureWorksDW2012;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorksDW2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-demo2-{0196CEAB-114C-402B-BAC8-072B80D074DF}localhost.AdventureWorksDW2012;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[TutorialLog.log]"
       DTS:CreationName="FILE"
-      DTS:DTSID="{CBCCE5DE-CAFB-46C8-AEAB-1FDBF80902EC}"
+      DTS:DTSID="{9E6BA654-BDA9-4BB5-AB6D-FD485DFD0B1A}"
       DTS:ObjectName="TutorialLog.log">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -96,10 +96,20 @@
   </DTS:ConnectionManagers>
   <DTS:LogProviders>
     <DTS:LogProvider
+      DTS:ConfigString="localhost.AdventureWorksDW2012"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{9765C8A1-3917-4E4F-AF11-B6CA61F2C55A}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+    <DTS:LogProvider
       DTS:ConfigString="TutorialLog.log"
       DTS:CreationName="Microsoft.LogProviderTextFile"
       DTS:Description="Writes log entries for events to a CSV file"
-      DTS:DTSID="{C2ED5D9F-3092-4C01-B978-C97759680CBB}"
+      DTS:DTSID="{EB1D86F2-9410-4CFF-8DB0-FFA37B6C2E6D}"
       DTS:ObjectName="SSIS log provider for Text files1">
       <DTS:ObjectData>
         <InnerObject />
@@ -109,7 +119,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B30DB852-4A85-4F09-8B68-60F9178B7080}"
+      DTS:DTSID="{513AD8E0-3019-4ACD-8E1E-EC217FB9FD15}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="varFileName">
@@ -120,13 +130,59 @@
   </DTS:Variables>
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="2" />
+    DTS:LoggingMode="2">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,13,OnInformation</DTS:Property>
+    <DTS:Property
+      DTS:EventName="Diagnostic"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnInformation"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{9765C8A1-3917-4E4F-AF11-B6CA61F2C55A}" />
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{EB1D86F2-9410-4CFF-8DB0-FFA37B6C2E6D}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Delete Table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{E2C17E72-BA8C-473C-B875-D9E9D1784324}"
+      DTS:DTSID="{B595CF7A-43C0-4309-9C8E-6F1F16632027}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Delete Table"
@@ -138,7 +194,7 @@
         DTS:LoggingMode="2" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{980D3313-017F-4640-9B42-CD85B23FC544}"
+          SQLTask:Connection="{0196CEAB-114C-402B-BAC8-072B80D074DF}"
           SQLTask:SqlStatementSource="Delete FROM [AdventureWorksDW2012].[dbo].[NewFactCurrencyRate]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -146,14 +202,14 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{2592185B-2657-4A52-A073-F3B8C08F2E9F}"
+      DTS:DTSID="{58DB2C82-49F0-413B-B796-2EC6076B62A9}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{BEAF43AB-2410-42CF-9275-C6110E9D2344}"
-        DTS:ObjectName="{BEAF43AB-2410-42CF-9275-C6110E9D2344}">
+        DTS:DTSID="{EE01E40D-B27D-4A83-AB17-7779506628C6}"
+        DTS:ObjectName="{EE01E40D-B27D-4A83-AB17-7779506628C6}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -176,7 +232,7 @@
           DTS:refId="Package\Foreach Loop Container\Data Flow Task"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{E26F7A5C-0A45-42DB-8E46-003FC948B6DB}"
+          DTS:DTSID="{B84CC433-D303-4B35-856C-69D3FF68E268}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
@@ -187,7 +243,7 @@
             DTS:LoggingMode="1">
             <DTS:Property
               DTS:DataType="8"
-              DTS:Name="EventFilter">2,21,PipelineExecutionPlan,22,PipelineExecutionTrees</DTS:Property>
+              DTS:Name="EventFilter">3,13,OnInformation,21,PipelineExecutionPlan,22,PipelineExecutionTrees</DTS:Property>
             <DTS:Property
               DTS:EventName="OnError"
               DTS:Name="ColumnFilter">
@@ -280,7 +336,9 @@
             </DTS:Property>
             <DTS:SelectedLogProviders>
               <DTS:SelectedLogProvider
-                DTS:InstanceID="{C2ED5D9F-3092-4C01-B978-C97759680CBB}" />
+                DTS:InstanceID="{9765C8A1-3917-4E4F-AF11-B6CA61F2C55A}" />
+              <DTS:SelectedLogProvider
+                DTS:InstanceID="{EB1D86F2-9410-4CFF-8DB0-FFA37B6C2E6D}" />
             </DTS:SelectedLogProviders>
           </DTS:LoggingOptions>
           <DTS:ObjectData>
@@ -1145,8 +1203,8 @@ where [refTable].[FullDateAlternateKey] = ?</property>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{49FECC88-AD86-4EAF-ACAE-05909C1688BA}"
-          DTS:ObjectName="{49FECC88-AD86-4EAF-ACAE-05909C1688BA}"
+          DTS:DTSID="{C097FB48-7716-4416-9E28-1CA734F28C05}"
+          DTS:ObjectName="{C097FB48-7716-4416-9E28-1CA734F28C05}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::varFileName" />
       </DTS:ForEachVariableMappings>
@@ -1156,7 +1214,7 @@ where [refTable].[FullDateAlternateKey] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{4D3C5CC0-2885-4C51-A4A3-C31BB87F2DA2}"
+      DTS:DTSID="{BCD6C072-BAD4-4C66-B9BB-5731AB4C0C72}"
       DTS:From="Package\Delete Table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1181,7 +1239,7 @@ where [refTable].[FullDateAlternateKey] = ?</property>
         <NodeLayout
           Size="152,42"
           Id="Package\Foreach Loop Container\Data Flow Task"
-          TopLeft="52,47" />
+          TopLeft="33,55" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -1358,7 +1416,9 @@ where [refTable].[FullDateAlternateKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1392,7 +1452,9 @@ where [refTable].[FullDateAlternateKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1426,7 +1488,9 @@ where [refTable].[FullDateAlternateKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

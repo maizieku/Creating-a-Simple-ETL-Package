@@ -1,0 +1,192 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CheckpointFileName="C:\Temp\Package1_SSIS_checkpoin.xml"
+  DTS:CheckpointUsage="1"
+  DTS:CreationDate="5/19/2023 11:36:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KKVMS-2"
+  DTS:CreatorName="CONTOSO\User40"
+  DTS:DTSID="{0D3A9041-7289-45FF-A73C-589AEB36D3FF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:SaveCheckpoints="True"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{AE329A5C-D311-4549-A08C-9A5A407C5A23}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorksDW2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{815B15C3-0383-4EE8-9927-65BACBE12552}"
+      DTS:ObjectName="localhost.AdventureWorksDW2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorksDW2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{815B15C3-0383-4EE8-9927-65BACBE12552}localhost.AdventureWorksDW2012;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A018768A-93A1-47FB-9D39-5D5D9443559F}"
+      DTS:ObjectName="CheckpointPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Temp\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:PropertyExpression
+    DTS:Name="CheckpointFileName">@[$Package::CheckpointPath]+ @[System::PackageName]+"_SSIS_checkpoin.xml"</DTS:PropertyExpression>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AD14EE14-FF0E-47E0-9EF7-D391420B7A94}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{815B15C3-0383-4EE8-9927-65BACBE12552}"
+          SQLTask:SqlStatementSource="select @@ServerName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6F6ACF5C-EAE9-4EEB-99DF-8551C728BEA1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{815B15C3-0383-4EE8-9927-65BACBE12552}"
+          SQLTask:SqlStatementSource="Select @@Version" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9DEEE204-9C71-43EF-9216-7F0AEE0B12BE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 2"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{815B15C3-0383-4EE8-9927-65BACBE12552}"
+          SQLTask:SqlStatementSource="select count(*) from sys.databases" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{25670CE9-3F26-437C-8067-5134C4398FB7}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{71F376A9-478C-4160-B0BE-65659E15CA88}"
+      DTS:From="Package\Execute SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task 2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="236,69" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="233,166" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="321.75,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Execute SQL Task 2"
+          TopLeft="235,267" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="323.5,208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
